@@ -13,6 +13,7 @@ function filterAvailable(items: MenuItem[]) {
 export async function loadMenu(): Promise<MenuPayload> {
   try {
     const response = await fetch('/api/menu', {
+      cache: 'no-store',
       headers: {
         Accept: 'application/json',
       },

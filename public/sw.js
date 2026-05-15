@@ -1,4 +1,4 @@
-const CACHE_NAME = 'amber-table-shell-v1';
+const CACHE_NAME = 'amber-table-shell-v2';
 const APP_SHELL = ['/', '/manifest.webmanifest', '/icon-192.svg', '/icon-512.svg'];
 
 self.addEventListener('install', (event) => {
@@ -30,6 +30,27 @@ self.addEventListener('fetch', (event) => {
     requestUrl.pathname.startsWith('/api/') ||
     requestUrl.pathname.startsWith('/uploads/')
   ) {
+    return;
+  }
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const cloned = response.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put('/', cloned);
+          });
+
+          return response;
+        })
+        .catch(async () => {
+          const cached = await caches.match('/');
+          return cached ?? caches.match(event.request);
+        }),
+    );
+
     return;
   }
 
