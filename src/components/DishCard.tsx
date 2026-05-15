@@ -14,11 +14,9 @@ export function DishCard({
   onOpen,
   onQuickAdd,
 }: DishCardProps) {
-  const imageSrc = buildPlaceholderImage(
-    item.imageLabel,
-    item.accentFrom,
-    item.accentTo,
-  );
+  const imageSrc =
+    item.imageUrl ||
+    buildPlaceholderImage(item.imageLabel, item.accentFrom, item.accentTo);
 
   return (
     <article className="overflow-hidden rounded-[28px] border border-line bg-surface shadow-card">

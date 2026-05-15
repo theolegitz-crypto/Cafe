@@ -1,10 +1,4 @@
-export type MenuCategory =
-  | 'Закуски'
-  | 'Салаты'
-  | 'Горячее'
-  | 'Пицца'
-  | 'Напитки'
-  | 'Десерты';
+export type MenuCategory = string;
 
 export type MenuTag = 'Хит' | 'Новинка' | 'Острое' | 'Вегетарианское';
 
@@ -27,12 +21,14 @@ export interface MenuItem {
   imageLabel: string;
   accentFrom: string;
   accentTo: string;
+  imageUrl?: string | null;
   tags: MenuTag[];
   ingredients: string[];
   modifiers: ModifierOption[];
   calories: string;
   popular?: boolean;
   promoText?: string;
+  isAvailable?: boolean;
 }
 
 export interface CartLine {

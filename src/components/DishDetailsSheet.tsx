@@ -41,6 +41,8 @@ export function DishDetailsSheet({
     item.accentFrom,
     item.accentTo,
   );
+  const resolvedImageSrc =
+    item.imageUrl || imageSrc;
 
   const modifiersTotal = item.modifiers
     .filter((modifier) => modifierIds.includes(modifier.id))
@@ -61,7 +63,7 @@ export function DishDetailsSheet({
         <div className="mx-auto mb-4 h-1.5 w-14 rounded-full bg-brand-200" />
 
         <div className="relative overflow-hidden rounded-[28px] bg-muted p-4">
-          <img src={imageSrc} alt={item.name} className="h-64 w-full rounded-[24px] object-cover" />
+          <img src={resolvedImageSrc} alt={item.name} className="h-64 w-full rounded-[24px] object-cover" />
           <div className="absolute left-6 top-6 flex flex-wrap gap-2">
             {item.tags.map((tag) => (
               <span key={tag} className={`rounded-full px-3 py-1 text-[11px] font-semibold ${tagStyles[tag]}`}>

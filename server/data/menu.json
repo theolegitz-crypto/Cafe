@@ -1,0 +1,270 @@
+{
+  "categories": ["Закуски", "Салаты", "Горячее", "Пицца", "Напитки", "Десерты"],
+  "items": [
+    {
+      "id": "starter-bruschetta",
+      "category": "Закуски",
+      "name": "Брускетта с томатами",
+      "description": "Хрустящий хлеб, печеные томаты, страчателла и базиликовое масло.",
+      "price": 430,
+      "portion": "210 г",
+      "imageLabel": "Bruschetta",
+      "accentFrom": "#ff8b70",
+      "accentTo": "#ffb38c",
+      "imageUrl": null,
+      "tags": ["Новинка", "Вегетарианское"],
+      "ingredients": ["чиабатта", "томаты", "страчателла", "базилик", "оливковое масло"],
+      "modifiers": [
+        { "id": "extra-burrata", "name": "Добавить буррату", "price": 160 },
+        { "id": "gluten-free", "name": "Безглютеновая основа", "price": 90 }
+      ],
+      "calories": "320 ккал",
+      "popular": false,
+      "promoText": "Легкий старт к обеду",
+      "isAvailable": true
+    },
+    {
+      "id": "starter-shrimp",
+      "category": "Закуски",
+      "name": "Креветки с чесночным соусом",
+      "description": "Тигровые креветки, чесночное масло, лайм и острый перец.",
+      "price": 760,
+      "portion": "220 г",
+      "imageLabel": "Shrimps",
+      "accentFrom": "#ff7a59",
+      "accentTo": "#ff9d6f",
+      "imageUrl": null,
+      "tags": ["Хит", "Острое"],
+      "ingredients": ["креветки", "чеснок", "лайм", "чили", "зелень"],
+      "modifiers": [
+        { "id": "extra-lime", "name": "Доп. лайм", "price": 40 },
+        { "id": "spicy-sauce", "name": "Острый дип", "price": 70 }
+      ],
+      "calories": "410 ккал",
+      "popular": true,
+      "promoText": "Самая частая закуска к столу",
+      "isAvailable": true
+    },
+    {
+      "id": "salad-caesar",
+      "category": "Салаты",
+      "name": "Цезарь с курицей",
+      "description": "Романо, курица sous-vide, пармезан, сухарики и фирменный соус.",
+      "price": 640,
+      "portion": "250 г",
+      "imageLabel": "Caesar",
+      "accentFrom": "#f4b86d",
+      "accentTo": "#f0d8a2",
+      "imageUrl": null,
+      "tags": ["Хит"],
+      "ingredients": ["романо", "курица", "пармезан", "соус цезарь", "сухарики"],
+      "modifiers": [
+        { "id": "extra-chicken", "name": "Больше курицы", "price": 140 },
+        { "id": "extra-parmesan", "name": "Доп. пармезан", "price": 80 }
+      ],
+      "calories": "480 ккал",
+      "popular": true,
+      "promoText": "",
+      "isAvailable": true
+    },
+    {
+      "id": "salad-garden",
+      "category": "Салаты",
+      "name": "Зеленый боул",
+      "description": "Авокадо, киноа, огурец, брокколи, листья салата и цитрусовый дрессинг.",
+      "price": 590,
+      "portion": "260 г",
+      "imageLabel": "Green Bowl",
+      "accentFrom": "#72cfb0",
+      "accentTo": "#b2f0de",
+      "imageUrl": null,
+      "tags": ["Новинка", "Вегетарианское"],
+      "ingredients": ["киноа", "авокадо", "огурец", "брокколи", "цитрусовый соус"],
+      "modifiers": [
+        { "id": "extra-avocado", "name": "Доп. авокадо", "price": 120 },
+        { "id": "tofu", "name": "Тофу на гриле", "price": 150 }
+      ],
+      "calories": "350 ккал",
+      "popular": false,
+      "promoText": "",
+      "isAvailable": true
+    },
+    {
+      "id": "main-steak",
+      "category": "Горячее",
+      "name": "Стейк с мини-картофелем",
+      "description": "Говяжий стейк medium, перечный соус и запеченный молодой картофель.",
+      "price": 1590,
+      "portion": "340 г",
+      "imageLabel": "Steak",
+      "accentFrom": "#915240",
+      "accentTo": "#d18d70",
+      "imageUrl": null,
+      "tags": ["Хит"],
+      "ingredients": ["говядина", "перечный соус", "картофель", "микс салатов"],
+      "modifiers": [
+        { "id": "rare", "name": "Степень прожарки rare", "price": 0 },
+        { "id": "medium-well", "name": "Степень прожарки medium well", "price": 0 },
+        { "id": "mushroom-sauce", "name": "Грибной соус", "price": 110 }
+      ],
+      "calories": "760 ккал",
+      "popular": true,
+      "promoText": "Главный выбор вечера",
+      "isAvailable": true
+    },
+    {
+      "id": "main-pasta",
+      "category": "Горячее",
+      "name": "Паста с белыми грибами",
+      "description": "Тальятелле в сливочном соусе с белыми грибами и трюфельным маслом.",
+      "price": 820,
+      "portion": "300 г",
+      "imageLabel": "Pasta",
+      "accentFrom": "#d8a14d",
+      "accentTo": "#f1cf86",
+      "imageUrl": null,
+      "tags": ["Новинка"],
+      "ingredients": ["тальятелле", "белые грибы", "сливки", "трюфельное масло", "пармезан"],
+      "modifiers": [
+        { "id": "extra-mushrooms", "name": "Доп. грибы", "price": 130 },
+        { "id": "burrata-top", "name": "Буррата сверху", "price": 170 }
+      ],
+      "calories": "610 ккал",
+      "popular": false,
+      "promoText": "",
+      "isAvailable": true
+    },
+    {
+      "id": "main-soup",
+      "category": "Горячее",
+      "name": "Том-ям с креветкой",
+      "description": "Кокосовый бульон, креветки, грибы, лайм и кинза.",
+      "price": 690,
+      "portion": "430 мл",
+      "imageLabel": "Tom Yum",
+      "accentFrom": "#ff8864",
+      "accentTo": "#ffc07d",
+      "imageUrl": null,
+      "tags": ["Острое", "Хит"],
+      "ingredients": ["креветки", "кокосовое молоко", "грибы", "лайм", "кинза"],
+      "modifiers": [
+        { "id": "rice-extra", "name": "Доп. рис", "price": 70, "defaultSelected": true },
+        { "id": "spice-high", "name": "Сделать острее", "price": 0 }
+      ],
+      "calories": "390 ккал",
+      "popular": true,
+      "promoText": "",
+      "isAvailable": true
+    },
+    {
+      "id": "pizza-pepperoni",
+      "category": "Пицца",
+      "name": "Пепперони 30 см",
+      "description": "Тонкое тесто, соус из томатов, моцарелла и пепперони.",
+      "price": 840,
+      "portion": "30 см",
+      "imageLabel": "Pepperoni",
+      "accentFrom": "#f56755",
+      "accentTo": "#ff9d78",
+      "imageUrl": null,
+      "tags": ["Хит"],
+      "ingredients": ["тесто", "томатный соус", "моцарелла", "пепперони"],
+      "modifiers": [
+        { "id": "extra-cheese", "name": "Доп. сыр", "price": 130 },
+        { "id": "double-pepperoni", "name": "Двойная пепперони", "price": 180 }
+      ],
+      "calories": "950 ккал",
+      "popular": true,
+      "promoText": "",
+      "isAvailable": true
+    },
+    {
+      "id": "pizza-margarita",
+      "category": "Пицца",
+      "name": "Маргарита 30 см",
+      "description": "Легкая пицца с моцареллой, базиликом и ароматным томатным соусом.",
+      "price": 720,
+      "portion": "30 см",
+      "imageLabel": "Margarita",
+      "accentFrom": "#ff9d6f",
+      "accentTo": "#ffd59d",
+      "imageUrl": null,
+      "tags": ["Вегетарианское"],
+      "ingredients": ["тесто", "моцарелла", "базилик", "томатный соус"],
+      "modifiers": [
+        { "id": "burrata", "name": "Добавить буррату", "price": 190 },
+        { "id": "pesto", "name": "Соус песто", "price": 80 }
+      ],
+      "calories": "840 ккал",
+      "popular": false,
+      "promoText": "Подходит к семейному заказу",
+      "isAvailable": true
+    },
+    {
+      "id": "drink-lemonade",
+      "category": "Напитки",
+      "name": "Лимонад манго-маракуйя",
+      "description": "Освежающий домашний лимонад с тропическим вкусом и льдом.",
+      "price": 340,
+      "portion": "350 мл",
+      "imageLabel": "Lemonade",
+      "accentFrom": "#ffca62",
+      "accentTo": "#fff1a7",
+      "imageUrl": null,
+      "tags": ["Новинка"],
+      "ingredients": ["пюре манго", "маракуйя", "содовая", "лед", "мята"],
+      "modifiers": [
+        { "id": "large-cup", "name": "Большой стакан 500 мл", "price": 90 },
+        { "id": "less-sugar", "name": "Меньше сахара", "price": 0 }
+      ],
+      "calories": "180 ккал",
+      "popular": false,
+      "promoText": "",
+      "isAvailable": true
+    },
+    {
+      "id": "drink-coffee",
+      "category": "Напитки",
+      "name": "Капучино",
+      "description": "Эспрессо, молоко и плотная молочная пена в большой чашке.",
+      "price": 260,
+      "portion": "300 мл",
+      "imageLabel": "Cappuccino",
+      "accentFrom": "#a07d64",
+      "accentTo": "#d1b69d",
+      "imageUrl": null,
+      "tags": ["Хит"],
+      "ingredients": ["эспрессо", "молоко"],
+      "modifiers": [
+        { "id": "plant-milk", "name": "Растительное молоко", "price": 90 },
+        { "id": "vanilla-syrup", "name": "Ванильный сироп", "price": 50 }
+      ],
+      "calories": "160 ккал",
+      "popular": false,
+      "promoText": "",
+      "isAvailable": true
+    },
+    {
+      "id": "dessert-cheesecake",
+      "category": "Десерты",
+      "name": "Сан-Себастьян чизкейк",
+      "description": "Нежный чизкейк с карамельной корочкой и ягодным соусом.",
+      "price": 450,
+      "portion": "170 г",
+      "imageLabel": "Cheesecake",
+      "accentFrom": "#d89fb0",
+      "accentTo": "#f0ccd6",
+      "imageUrl": null,
+      "tags": ["Хит", "Новинка"],
+      "ingredients": ["сливочный сыр", "сливки", "ягодный соус", "ваниль"],
+      "modifiers": [
+        { "id": "extra-sauce", "name": "Доп. ягодный соус", "price": 70 },
+        { "id": "ice-cream", "name": "Шарик мороженого", "price": 90 }
+      ],
+      "calories": "430 ккал",
+      "popular": true,
+      "promoText": "",
+      "isAvailable": true
+    }
+  ]
+}

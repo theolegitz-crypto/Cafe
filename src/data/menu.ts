@@ -20,6 +20,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Bruschetta',
     accentFrom: '#ff8b70',
     accentTo: '#ffb38c',
+    imageUrl: null,
     tags: ['Новинка', 'Вегетарианское'],
     ingredients: ['чиабатта', 'томаты', 'страчателла', 'базилик', 'оливковое масло'],
     modifiers: [
@@ -28,6 +29,7 @@ export const menuItems: MenuItem[] = [
     ],
     calories: '320 ккал',
     promoText: 'Легкий старт к обеду',
+    isAvailable: true,
   },
   {
     id: 'starter-shrimp',
@@ -39,6 +41,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Shrimps',
     accentFrom: '#ff7a59',
     accentTo: '#ff9d6f',
+    imageUrl: null,
     tags: ['Хит', 'Острое'],
     ingredients: ['креветки', 'чеснок', 'лайм', 'чили', 'зелень'],
     modifiers: [
@@ -48,6 +51,7 @@ export const menuItems: MenuItem[] = [
     calories: '410 ккал',
     popular: true,
     promoText: 'Самая частая закуска к столу',
+    isAvailable: true,
   },
   {
     id: 'salad-caesar',
@@ -59,6 +63,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Caesar',
     accentFrom: '#f4b86d',
     accentTo: '#f0d8a2',
+    imageUrl: null,
     tags: ['Хит'],
     ingredients: ['романо', 'курица', 'пармезан', 'соус цезарь', 'сухарики'],
     modifiers: [
@@ -67,6 +72,7 @@ export const menuItems: MenuItem[] = [
     ],
     calories: '480 ккал',
     popular: true,
+    isAvailable: true,
   },
   {
     id: 'salad-garden',
@@ -78,6 +84,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Green Bowl',
     accentFrom: '#72cfb0',
     accentTo: '#b2f0de',
+    imageUrl: null,
     tags: ['Новинка', 'Вегетарианское'],
     ingredients: ['киноа', 'авокадо', 'огурец', 'брокколи', 'цитрусовый соус'],
     modifiers: [
@@ -85,6 +92,7 @@ export const menuItems: MenuItem[] = [
       { id: 'tofu', name: 'Тофу на гриле', price: 150 },
     ],
     calories: '350 ккал',
+    isAvailable: true,
   },
   {
     id: 'main-steak',
@@ -96,6 +104,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Steak',
     accentFrom: '#915240',
     accentTo: '#d18d70',
+    imageUrl: null,
     tags: ['Хит'],
     ingredients: ['говядина', 'перечный соус', 'картофель', 'микс салатов'],
     modifiers: [
@@ -106,6 +115,7 @@ export const menuItems: MenuItem[] = [
     calories: '760 ккал',
     popular: true,
     promoText: 'Главный выбор вечера',
+    isAvailable: true,
   },
   {
     id: 'main-pasta',
@@ -117,6 +127,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Pasta',
     accentFrom: '#d8a14d',
     accentTo: '#f1cf86',
+    imageUrl: null,
     tags: ['Новинка'],
     ingredients: ['тальятелле', 'белые грибы', 'сливки', 'трюфельное масло', 'пармезан'],
     modifiers: [
@@ -124,6 +135,7 @@ export const menuItems: MenuItem[] = [
       { id: 'burrata-top', name: 'Буррата сверху', price: 170 },
     ],
     calories: '610 ккал',
+    isAvailable: true,
   },
   {
     id: 'main-soup',
@@ -135,6 +147,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Tom Yum',
     accentFrom: '#ff8864',
     accentTo: '#ffc07d',
+    imageUrl: null,
     tags: ['Острое', 'Хит'],
     ingredients: ['креветки', 'кокосовое молоко', 'грибы', 'лайм', 'кинза'],
     modifiers: [
@@ -143,6 +156,7 @@ export const menuItems: MenuItem[] = [
     ],
     calories: '390 ккал',
     popular: true,
+    isAvailable: true,
   },
   {
     id: 'pizza-pepperoni',
@@ -154,6 +168,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Pepperoni',
     accentFrom: '#f56755',
     accentTo: '#ff9d78',
+    imageUrl: null,
     tags: ['Хит'],
     ingredients: ['тесто', 'томатный соус', 'моцарелла', 'пепперони'],
     modifiers: [
@@ -162,6 +177,7 @@ export const menuItems: MenuItem[] = [
     ],
     calories: '950 ккал',
     popular: true,
+    isAvailable: true,
   },
   {
     id: 'pizza-margarita',
@@ -173,6 +189,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Margarita',
     accentFrom: '#ff9d6f',
     accentTo: '#ffd59d',
+    imageUrl: null,
     tags: ['Вегетарианское'],
     ingredients: ['тесто', 'моцарелла', 'базилик', 'томатный соус'],
     modifiers: [
@@ -181,6 +198,7 @@ export const menuItems: MenuItem[] = [
     ],
     calories: '840 ккал',
     promoText: 'Подходит к семейному заказу',
+    isAvailable: true,
   },
   {
     id: 'drink-lemonade',
@@ -192,6 +210,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Lemonade',
     accentFrom: '#ffca62',
     accentTo: '#fff1a7',
+    imageUrl: null,
     tags: ['Новинка'],
     ingredients: ['пюре манго', 'маракуйя', 'содовая', 'лед', 'мята'],
     modifiers: [
@@ -199,6 +218,7 @@ export const menuItems: MenuItem[] = [
       { id: 'less-sugar', name: 'Меньше сахара', price: 0 },
     ],
     calories: '180 ккал',
+    isAvailable: true,
   },
   {
     id: 'drink-coffee',
@@ -210,6 +230,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Cappuccino',
     accentFrom: '#a07d64',
     accentTo: '#d1b69d',
+    imageUrl: null,
     tags: ['Хит'],
     ingredients: ['эспрессо', 'молоко'],
     modifiers: [
@@ -217,6 +238,7 @@ export const menuItems: MenuItem[] = [
       { id: 'vanilla-syrup', name: 'Ванильный сироп', price: 50 },
     ],
     calories: '160 ккал',
+    isAvailable: true,
   },
   {
     id: 'dessert-cheesecake',
@@ -228,6 +250,7 @@ export const menuItems: MenuItem[] = [
     imageLabel: 'Cheesecake',
     accentFrom: '#d89fb0',
     accentTo: '#f0ccd6',
+    imageUrl: null,
     tags: ['Хит', 'Новинка'],
     ingredients: ['сливочный сыр', 'сливки', 'ягодный соус', 'ваниль'],
     modifiers: [
@@ -236,5 +259,6 @@ export const menuItems: MenuItem[] = [
     ],
     calories: '430 ккал',
     popular: true,
+    isAvailable: true,
   },
 ];

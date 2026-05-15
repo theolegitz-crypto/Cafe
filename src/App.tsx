@@ -12,6 +12,8 @@ import { menuCategories, menuItems } from './data/menu';
 import { CartLine, MenuCategory, MenuItem, OrderMode } from './types/menu';
 import { trackEvent } from './utils/analytics';
 import { formatModeLabel, formatPrice, tagStyles } from './utils/formatters';
+import { loadMenu } from './utils/menuApi';
+import { AdminApp } from './admin/AdminApp';
 
 interface SessionContext {
   hasTableNumber: boolean;
@@ -99,6 +101,10 @@ const promoCards = [
 ];
 
 function App() {
+  if (window.location.pathname.startsWith('/admin')) {
+    return <AdminApp />;
+  }
+
   const [{ hasTableNumber, tableLabel, initialMode }] = useState(getSessionContext);
   const [selectedCategory, setSelectedCategory] = useState<MenuCategory | 'Все'>('Все');
   const [searchQuery, setSearchQuery] = useState('');
@@ -109,6 +115,8 @@ function App() {
   const [isCheckoutOpen, setCheckoutOpen] = useState(false);
   const [confirmationCode, setConfirmationCode] = useState<string | null>(null);
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [remoteCategories, setRemoteCategories] = useState<MenuCategory[]>(menuCategories);
+  const [remoteItems, setRemoteItems] = useState<MenuItem[]>(menuItems);
   const [checkoutForm, setCheckoutForm] = useState<CheckoutFormState>({
     name: '',
     phone: '',
@@ -136,6 +144,13 @@ function App() {
   }, []);
 
   useEffect(() => {
+    loadMenu().then((payload) => {
+      setRemoteCategories(payload.categories);
+      setRemoteItems(payload.items);
+    });
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow =
       activeItem || isCartOpen || isCheckoutOpen ? 'hidden' : '';
 
@@ -145,7 +160,7 @@ function App() {
   }, [activeItem, isCartOpen, isCheckoutOpen]);
 
   const normalizedQuery = deferredQuery.trim().toLowerCase();
-  const filteredItems = menuItems.filter((item) => {
+  const filteredItems = remoteItems.filter((item) => {
     const matchesCategory =
       selectedCategory === 'Все' || item.category === selectedCategory;
     const searchableText = [
@@ -161,10 +176,10 @@ function App() {
     return matchesCategory && (normalizedQuery.length === 0 || searchableText.includes(normalizedQuery));
   });
 
-  const popularItems = menuItems.filter((item) => item.popular).slice(0, 5);
+  const popularItems = remoteItems.filter((item) => item.popular).slice(0, 5);
   const cartCount = cartLines.reduce((sum, line) => sum + line.quantity, 0);
   const cartTotal = cartLines.reduce((sum, line) => {
-    const item = menuItems.find((entry) => entry.id === line.itemId);
+    const item = remoteItems.find((entry) => entry.id === line.itemId);
     return item ? sum + getLineUnitPrice(line, item) * line.quantity : sum;
   }, 0);
 
@@ -334,7 +349,7 @@ function App() {
           </div>
 
           <CategoryTabs
-            categories={menuCategories}
+            categories={remoteCategories}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
           />
@@ -496,7 +511,7 @@ function App() {
       <CartSheet
         open={isCartOpen}
         lines={cartLines}
-        items={menuItems}
+        items={remoteItems}
         tableLabel={orderMode === 'table' ? tableLabel : formatModeLabel(orderMode)}
         onClose={() => setCartOpen(false)}
         onIncrease={(lineId) => updateLineQuantity(lineId, 1)}
@@ -513,7 +528,7 @@ function App() {
         orderMode={orderMode}
         tableLabel={orderMode === 'table' ? tableLabel : formatModeLabel(orderMode)}
         lines={cartLines}
-        items={menuItems}
+        items={remoteItems}
         total={cartTotal}
         form={checkoutForm}
         confirmationCode={confirmationCode}
