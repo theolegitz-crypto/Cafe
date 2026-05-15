@@ -173,33 +173,6 @@ for table in range(1, 21):
 - ...
 - `table-20.png`
 
-## Публикация на GitHub
-
-Текущий репозиторий проекта:
-
-```text
-https://github.com/theolegitz-crypto/Cafe
-```
-
-Если репозиторий уже создан на GitHub:
-
-```powershell
-git remote add origin https://github.com/theolegitz-crypto/Cafe.git
-git push -u origin main
-```
-
-Если удалённый репозиторий уже привязан:
-
-```powershell
-git push
-```
-
-Если `origin` уже существует, но нужно перепривязать его к этому репозиторию:
-
-```powershell
-git remote set-url origin https://github.com/theolegitz-crypto/Cafe.git
-git push -u origin main
-```
 
 ## Деплой на VPS
 
