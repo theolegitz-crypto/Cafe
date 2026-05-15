@@ -4,6 +4,12 @@
 
 Проект собран на `React + TypeScript + Vite + Tailwind CSS` и подходит для публикации как статический сайт на VPS, Vercel, Netlify или любом другом хостинге, который умеет раздавать HTML/CSS/JS.
 
+Репозиторий проекта на GitHub:
+
+```text
+https://github.com/theolegitz-crypto/Cafe
+```
+
 ## Что умеет проект
 
 - Показывает каталог блюд и категорий.
@@ -169,10 +175,16 @@ for table in range(1, 21):
 
 ## Публикация на GitHub
 
+Текущий репозиторий проекта:
+
+```text
+https://github.com/theolegitz-crypto/Cafe
+```
+
 Если репозиторий уже создан на GitHub:
 
 ```powershell
-git remote add origin https://github.com/USERNAME/REPO.git
+git remote add origin https://github.com/theolegitz-crypto/Cafe.git
 git push -u origin main
 ```
 
@@ -180,6 +192,13 @@ git push -u origin main
 
 ```powershell
 git push
+```
+
+Если `origin` уже существует, но нужно перепривязать его к этому репозиторию:
+
+```powershell
+git remote set-url origin https://github.com/theolegitz-crypto/Cafe.git
+git push -u origin main
 ```
 
 ## Деплой на VPS
@@ -206,7 +225,7 @@ sudo apt install -y nodejs
 
 ```bash
 cd /opt
-sudo git clone https://github.com/USERNAME/REPO.git cafe
+sudo git clone https://github.com/theolegitz-crypto/Cafe.git cafe
 sudo chown -R $USER:$USER /opt/cafe
 cd /opt/cafe
 ```
@@ -318,6 +337,12 @@ npm install
 npm run build
 ```
 
+Источник обновления:
+
+```text
+https://github.com/theolegitz-crypto/Cafe
+```
+
 Обычно для статического сайта этого достаточно.
 
 Если меняли конфиг nginx:
@@ -390,6 +415,13 @@ git commit -m "Update cafe menu"
 git push
 ```
 
+### Первый push именно в этот репозиторий
+
+```powershell
+git remote add origin https://github.com/theolegitz-crypto/Cafe.git
+git push -u origin main
+```
+
 ## Примечания
 
 - Проект статический, поэтому для базового запуска база данных не нужна.
@@ -406,4 +438,3 @@ git push
 - Домен направлен на VPS.
 - `HTTPS` включён.
 - QR-коды содержат полные ссылки вида `https://domain.ru/?table=12`.
-
