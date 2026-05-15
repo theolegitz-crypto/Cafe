@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  color: #152033;
+  color: #142033;
   background: #f5f7fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,11 +25,18 @@ body {
     radial-gradient(circle at top left, rgba(255, 122, 89, 0.06), transparent 24%),
     radial-gradient(circle at bottom right, rgba(89, 187, 255, 0.08), transparent 24%),
     #f5f7fb;
-  color: #152033;
+  color: #142033;
 }
 
 * {
   box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 #root {
@@ -38,7 +45,7 @@ body {
 
 ::selection {
   background: rgba(255, 122, 89, 0.22);
-  color: #152033;
+  color: #142033;
 }
 
 ::-webkit-scrollbar {
@@ -47,7 +54,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(118, 136, 161, 0.35);
+  background: rgba(125, 144, 166, 0.35);
   border-radius: 999px;
 }
 
@@ -58,4 +65,20 @@ body {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+}
+
+.safe-bottom-nav {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6.25rem);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-fixed-bottom {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
 }
