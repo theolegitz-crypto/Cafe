@@ -6,7 +6,6 @@ import { DishCard } from './components/DishCard';
 import { DishDetailsSheet } from './components/DishDetailsSheet';
 import { Footer } from './components/Footer';
 import { HeaderBar } from './components/HeaderBar';
-import { MenuHero } from './components/MenuHero';
 import { MobileNav } from './components/MobileNav';
 import { SearchBar } from './components/SearchBar';
 import { menuCategories, menuItems } from './data/menu';
@@ -89,12 +88,12 @@ const promoCards = [
   },
   {
     title: 'QR у каждого столика',
-    text: 'Сценарий под зал уже готов: номер стола читается из URL.',
+    text: 'Номер стола уже читается из URL, можно сразу работать с заказом.',
     tone: 'bg-mint text-success',
   },
   {
     title: 'Самовывоз за 25 минут',
-    text: 'Удобный mobile checkout для быстрых заказов без звонков.',
+    text: 'Удобный checkout без лишних экранов и лишней информации.',
     tone: 'bg-muted text-ink',
   },
 ];
@@ -117,6 +116,7 @@ function App() {
     address: '',
   });
 
+  const searchRef = useRef<HTMLElement | null>(null);
   const menuRef = useRef<HTMLElement | null>(null);
   const promoRef = useRef<HTMLElement | null>(null);
   const contactsRef = useRef<HTMLElement | null>(null);
@@ -263,6 +263,8 @@ function App() {
     target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  const isQrEntry = hasTableNumber || orderMode !== 'table';
+
   return (
     <div className="min-h-screen bg-canvas bg-glow text-ink">
       <HeaderBar
@@ -276,33 +278,48 @@ function App() {
       />
 
       <main className="safe-bottom-nav mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-4 sm:px-6 lg:px-8">
-        <MenuHero
-          city="Набережные Челны"
-          orderMode={orderMode}
-          tableLabel={tableLabel}
-          hasTableNumber={hasTableNumber}
-          canInstallApp={Boolean(installPrompt)}
-          onInstallApp={handleInstallApp}
-        />
+        {!isQrEntry && (
+          <section ref={promoRef} className="grid gap-3 sm:grid-cols-3">
+            {promoCards.map((card) => (
+              <article
+                key={card.title}
+                className={`rounded-[28px] border border-line p-5 shadow-soft ${card.tone}`}
+              >
+                <p className="text-xs uppercase tracking-[0.2em]">Promo</p>
+                <h2 className="mt-3 font-display text-3xl leading-tight">{card.title}</h2>
+                <p className="mt-3 text-sm leading-7">{card.text}</p>
+              </article>
+            ))}
+          </section>
+        )}
 
-        <section ref={promoRef} className="grid gap-3 sm:grid-cols-3">
-          {promoCards.map((card) => (
-            <article
-              key={card.title}
-              className={`rounded-[28px] border border-line p-5 shadow-soft ${card.tone}`}
-            >
-              <p className="text-xs uppercase tracking-[0.2em]">Promo</p>
-              <h2 className="mt-3 font-display text-3xl leading-tight">{card.title}</h2>
-              <p className="mt-3 text-sm leading-7">{card.text}</p>
-            </article>
-          ))}
-        </section>
+        <section className="space-y-4" ref={searchRef}>
+          {isQrEntry && (
+            <div className="rounded-[24px] border border-line bg-surface px-4 py-4 shadow-soft">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.22em] text-brand-500">
+                    {orderMode === 'table' ? 'Ваш столик' : 'Формат заказа'}
+                  </p>
+                  <p className="mt-1 text-base font-semibold text-ink">
+                    {orderMode === 'table' ? tableLabel : formatModeLabel(orderMode)}
+                  </p>
+                </div>
+                {hasTableNumber && (
+                  <span className="rounded-full bg-accentSoft px-3 py-2 text-sm font-semibold text-accentDeep">
+                    QR активен
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
 
-        <section className="space-y-4">
           <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
             <SearchBar value={searchQuery} onChange={setSearchQuery} />
             <div className="rounded-[24px] border border-line bg-surface px-5 py-4 shadow-soft">
-              <p className="text-xs uppercase tracking-[0.22em] text-brand-500">QR-сценарии</p>
+              <p className="text-xs uppercase tracking-[0.22em] text-brand-500">
+                Быстрые сценарии
+              </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {['?table=12', '?pickup=1', '?delivery=1'].map((scenario) => (
                   <span
@@ -338,8 +355,8 @@ function App() {
             </div>
 
             <p className="max-w-2xl text-sm leading-6 text-slate">
-              Крупные зоны касания, быстрый поиск, свайп-категории и карточки, которые
-              логично продолжаются в bottom sheet без перегруза.
+              Сразу показываем блюда, а поиск и категории всегда под рукой. Это удобнее для
+              сценария, когда гость только что отсканировал QR на столе.
             </p>
           </div>
 
@@ -359,8 +376,7 @@ function App() {
             <div className="rounded-[28px] border border-dashed border-brand-300 bg-surface px-6 py-12 text-center shadow-soft">
               <h3 className="font-display text-4xl text-ink">Ничего не найдено</h3>
               <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-slate">
-                Попробуйте другой поисковый запрос или соседнюю категорию. Основа под
-                мобильный каталог уже готова и легко расширяется.
+                Попробуйте другой поисковый запрос или соседнюю категорию.
               </p>
             </div>
           )}
@@ -515,8 +531,8 @@ function App() {
 
       <MobileNav
         cartCount={cartCount}
+        onSearch={() => scrollToSection(searchRef.current)}
         onMenu={() => scrollToSection(menuRef.current)}
-        onPromo={() => scrollToSection(promoRef.current)}
         onCart={() => setCartOpen(true)}
         onContacts={() => scrollToSection(contactsRef.current)}
       />

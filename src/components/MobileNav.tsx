@@ -1,28 +1,28 @@
 interface MobileNavProps {
   cartCount: number;
+  onSearch: () => void;
   onMenu: () => void;
-  onPromo: () => void;
   onCart: () => void;
   onContacts: () => void;
 }
 
 const items = [
+  { key: 'search', label: 'Поиск', badge: 'S' },
   { key: 'menu', label: 'Меню', badge: 'M' },
-  { key: 'promo', label: 'Акции', badge: 'A' },
   { key: 'cart', label: 'Корзина', badge: 'K' },
   { key: 'contacts', label: 'Контакты', badge: 'C' },
 ] as const;
 
 export function MobileNav({
   cartCount,
+  onSearch,
   onMenu,
-  onPromo,
   onCart,
   onContacts,
 }: MobileNavProps) {
   const handlers = {
+    search: onSearch,
     menu: onMenu,
-    promo: onPromo,
     cart: onCart,
     contacts: onContacts,
   };
