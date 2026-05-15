@@ -1,3 +1,5 @@
+import { CartIcon, ContactsIcon, MenuIcon, SearchIcon } from './Icons';
+
 interface MobileNavProps {
   cartCount: number;
   onSearch: () => void;
@@ -7,10 +9,10 @@ interface MobileNavProps {
 }
 
 const items = [
-  { key: 'search', label: 'Поиск', badge: 'S' },
-  { key: 'menu', label: 'Меню', badge: 'M' },
-  { key: 'cart', label: 'Корзина', badge: 'K' },
-  { key: 'contacts', label: 'Контакты', badge: 'C' },
+  { key: 'search', label: 'Поиск', icon: SearchIcon },
+  { key: 'menu', label: 'Меню', icon: MenuIcon },
+  { key: 'cart', label: 'Корзина', icon: CartIcon },
+  { key: 'contacts', label: 'Контакты', icon: ContactsIcon },
 ] as const;
 
 export function MobileNav({
@@ -38,7 +40,7 @@ export function MobileNav({
             className="relative flex min-w-0 flex-1 flex-col items-center gap-1"
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-muted text-sm font-bold text-ink">
-              {item.badge}
+              <item.icon className="h-5 w-5" />
             </span>
             <span className="truncate text-[11px] font-semibold uppercase tracking-[0.16em] text-slate">
               {item.label}
